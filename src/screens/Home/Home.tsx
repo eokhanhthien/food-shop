@@ -6,6 +6,7 @@ import { setUser, setAccessToken ,setIsLogin} from '../../redux-toolkit/features
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Header from '../../components/Header/Header';
 
 const Home = () => {
   const info:any = useSelector((state: RootState) => state.user.info)
@@ -46,20 +47,24 @@ const Home = () => {
   return (
     
         <View style={styles.container}>
-            <View style={styles.sidebar_top}>
-            <TouchableOpacity onPress={openDrawer} style={styles.container_icon_cart_left}>
-              <Image source={require('../../images/list.png')} style={styles.icon_cart_left}/>
-            </TouchableOpacity>
-              {/* <Text>Home {info?info.first_name:'' }</Text> */}
-              <TextInput
-              style={styles.input}
-              placeholder="Tìm kiếm"
-              />
-              <Image source={require('../../images/shopping-cart.png')} style={styles.icon_cart}/>
-              <Image source={require('../../images/chat.png')} style={styles.icon_cart}/>
-            </View>
+           <Header />
             
-            <View style={styles.info_user}>
+            <View style={styles.size_banner}>
+              <Image
+                source={{ uri: 'https://marketplace.canva.com/EAFVfgsKMAE/1/0/1600w/canva-black-and-yellow-simple-minimalist-burger-promotion-banner-YTqWS2eL8TM.jpg' }}
+                style={styles.img_banner}
+              />
+            </View >
+
+            <View style={styles.recommended}>
+                <View style={styles.recommended_left}>
+                  <Text style={styles.recommended_title}>Recommended</Text>
+                </View>
+                <View style={styles.recommended_right}>
+                   <Text style={styles.see_all}>See all</Text>
+                </View>
+            </View>
+            {/* <View style={styles.info_user}>
               <View style={styles.avatar}>
                 <Image source={require('../../images/user.png')} style={styles.icon_cart}/>
 
@@ -75,7 +80,9 @@ const Home = () => {
                    <Text  style={styles.button_text} onPress={handleLogout}>Đăng xuất</Text>
                    </View>
               </View>
-            </View>
+            </View> */}
+
+
         </View>
   )
 }
@@ -84,8 +91,8 @@ export default Home
 
 const styles = StyleSheet.create({
     container : {
-        backgroundColor: 'red',
-        // flex : 1,
+        backgroundColor: 'white',
+        flex : 1,
     
       },
     sidebar_top : {
@@ -121,7 +128,6 @@ const styles = StyleSheet.create({
       width: "100%",
       // height : 40,
       flexDirection: 'row',
-      padding : 12,
       alignItems: 'center',
       justifyContent : 'center',
     },
@@ -165,5 +171,43 @@ const styles = StyleSheet.create({
       height: 30,
       alignItems: 'center',
       marginRight: 6
+    },
+    size_banner:{
+      width: "100%",
+      height : 240,
+      padding: 16,
+    },
+    img_banner:{
+      width: "100%",
+      height: "100%",
+      borderRadius: 24
+      // aspectRatio: 1,
+    },
+    recommended:{
+      width: "100%",
+      height: 30,
+      // backgroundColor: 'red',
+      paddingHorizontal: 16,
+      flexDirection: 'row',
+
+    },
+    recommended_left:{
+      width: "80%",
+      height: "100%",
+      // backgroundColor: "blue"
+    },
+    recommended_right:{
+      width: "20%",
+      height: "100%",
+      // backgroundColor: "green"
+      alignItems: "flex-end"
+    },
+    recommended_title:{
+      color: "black",
+      fontSize: 18,
+      fontWeight: "600"
+    },
+    see_all:{
+        alignItems: "flex-end"
     }
 })

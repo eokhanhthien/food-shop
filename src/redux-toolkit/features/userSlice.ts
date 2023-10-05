@@ -18,15 +18,15 @@ export const counterSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<userSlice['info']>) => {
+    setUser: (state, action: PayloadAction<any>) => {
       state.info = action.payload;
     },
 
-    setAccessToken: (state, action: PayloadAction<userSlice['access_token']>) => {
+    setAccessToken: (state, action: PayloadAction<any>) => {
       state.access_token = action.payload;
     },
 
-    setIsLogin: (state, action: PayloadAction<userSlice['access_token']>) => {
+    setIsLogin: (state, action: PayloadAction<any>) => {
       console.log(action.payload);
       state.isLogin = action.payload;
     },

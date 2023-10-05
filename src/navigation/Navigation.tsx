@@ -5,36 +5,31 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider, useSelector } from 'react-redux';
-import type { RootState } from '../../src/redux-toolkit/store';
+import type { RootState } from '../redux-toolkit/store';
 
 // Import các thành phần của bạn
-import Login from '../components/Auth/Login';
-import Register from '../components/Auth/Register';
-import Home from '../components/Home/Home';
-import Draw from '../components/Home/Draw';
+import Login from '../screens/Auth/Login';
+import Register from '../screens/Auth/Register';
+import Home from '../screens/Home/Home';
+import Draw from '../screens/Home/Draw';
 import DrawerContent from '../components/Drawer/Drawer';
 
-import Goods from '../components/Goods/Goods';
+import Goods from '../screens/Goods/Goods';
+import Profile from '../screens/Profile/Profile';
 
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // Tạo Stack Navigation
 const Stack = createNativeStackNavigator();
-
-// Tạo Bottom Tab Navigation
 const Tab = createBottomTabNavigator();
-
-// Tạo Drawer Navigation
 const Drawer = createDrawerNavigator();
 
 // Một màn hình trong Tab Navigation
 const HomeScreen = () => <Home />;
-// Một màn hình trong Goods Navigation
 const Goodscreen = () => <Goods />;
-
-// Một màn hình trong Drawer Navigation
 const DrawScreen = () => <Draw />;
+const ProfileScreen = () => <Profile />;
 
 // Màn hình đăng nhập và đăng ký
 const AuthStack = () => (
@@ -48,6 +43,8 @@ const HomeStackScreen = () => (
   <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Home" component={HomeScreen} />
     <Stack.Screen name="Goods" component={Goodscreen} />
+    <Stack.Screen name="Draw" component={DrawScreen} />
+    <Stack.Screen name="Profile" component={ProfileScreen} />
     {/* Các màn hình khác trong Stack nếu cần */}
   </Stack.Navigator>
 );

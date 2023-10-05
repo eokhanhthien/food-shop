@@ -8,8 +8,8 @@ const drawer = () => {
     
   return (
     <View style={styles.container}>
-      <Text style={styles.draw_item} onPress={()=>{navigation.navigate('Home')}}><Icon name="home" style={styles.icon}></Icon> Trang chủ </Text>
-      <Text style={styles.draw_item} onPress={()=>{navigation.navigate('Goods')}}><Icon name="dropbox" style={styles.icon}></Icon> Hàng hóa</Text>
+      <Text style={styles.draw_item} onPress={()=>{navigation.navigate('Home')}}><Icon name="home" style={styles.icon}></Icon>  Home </Text>
+      <Text style={styles.draw_item} onPress={()=>{navigation.navigate('Goods')}}><Icon name="dropbox" style={styles.icon}></Icon>  Goods</Text>
 
 
     </View>
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
         marginBottom: 6,
         padding: 8,
         fontWeight: '400',
-        fontSize: 18
+        fontSize: 20
     },
     icon:{
-        fontSize: 20
+        fontSize: 24,
     }
 })
